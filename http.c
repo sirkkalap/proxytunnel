@@ -109,9 +109,9 @@ void proxy_protocol(PTSTREAM *pts) {
 	} else {
 		if( args_info.verbose_flag )
 			message( "\nTunneling to %s (destination)\n", args_info.dest_arg );
-		sprintf( buf, "CONNECT %s HTTP/1.1\r\nHost: %s\r\n", args_info.dest_arg, args_info.host_arg ? args_info.host_arg : args_info.dest_arg );
+		sprintf( buf, "CONNECT %s HTTP/1.1\r\nHost: %s\r\n", args_info.dest_arg, args_info.proxyhost_arg ? args_info.proxyhost_arg : args_info.dest_arg );
 	}
-	
+
 	if ( args_info.user_given && args_info.pass_given ) {
 		/* Create connect string including the authorization part */
 		if (args_info.ntlm_flag) {
@@ -187,7 +187,7 @@ void proxy_protocol(PTSTREAM *pts) {
 			my_perror( "Socket write error" );
 			exit( 1 );
 		}
-	
+
 //		if( args_info.verbose_flag )
 //			message( "Received from remote proxy:\n");
 
