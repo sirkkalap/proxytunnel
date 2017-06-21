@@ -3,6 +3,8 @@ Short guide to installing proxytunnel
 On most modern unix systems, use the normal Makefile, possibly uncommenting
 the section related to your system (darwin/cygwin/solaris/openbsd)
 
+You might need to install libssl-dev . On Ubuntu: sudo apt install -y libssl-dev
+
 If you want to enable setproctitle functionality, add a CFLAGS define
 -DSETPROCTITLE (uncomment sample in Makefile)
 
